@@ -550,7 +550,7 @@ begin
     JSONToCollection(JSON, AObject as TCollection)
   else
     begin
-    Pil:=TPropInfoList.Create(AObject,tkProperties);
+    Pil:=TPropInfoList.Create(AObject,tkProperties,False);
     try
       For I:=0 to PIL.Count-1 do
         begin
@@ -780,7 +780,7 @@ begin
       Result.Add('Objects', StreamTList(TList(AObject)))
     else
       begin
-      PIL:=TPropInfoList.Create(AObject,tkProperties);
+      PIL:=TPropInfoList.Create(AObject,tkProperties,False);
       try
         For I:=0 to PIL.Count-1 do
           begin
