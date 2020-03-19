@@ -422,6 +422,10 @@ Var
   A : TJSONArray;
   JS : TJSONStringType;
 begin
+  // Replace escaped strings with special characters, as in the JSON specification: e.g. \r\n -> #13#10
+  if (PropData.JSONType = jtString) then
+    PropData.AsString := JSONStringToString(PropData.AsString);
+
   PI:=PropInfo;
   TI:=PropInfo^.PropType;
   case TI^.Kind of
